@@ -10,6 +10,14 @@ SublimeWebColors is fully installable via [Sublime Package Control](http://githu
 
 Follow the steps under Installation to install this plugin.
 
+Usage
+-----
+
+- Windows: The default binding is set to `ctrl+shift+u`
+- OSX: The default binding is set to `super+shift+u`
+
+You can change these by overwriting the appropriate `*.sublime-keymap`
+
 License
 -------
 
