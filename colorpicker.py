@@ -9,7 +9,7 @@ class WebColorsCommand(sublime_plugin.WindowCommand):
 		self.generateColorDialog()
 
 	def run(self):
-		self.window.show_quick_panel(self.colorList , self.callback)
+		self.window.show_quick_panel(self.colorList , self.callback, sublime.MONOSPACE_FONT)
 
 	def callback(self, index):
 		if (index > -1):
