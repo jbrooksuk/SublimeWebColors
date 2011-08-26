@@ -14,6 +14,7 @@ Usage
 -----
 
 - Windows: The default binding is set to `ctrl+shift+u`
+- Linux: The default binding is set to `ctrl+shift+u`
 - OSX: The default binding is set to `super+shift+u`
 
 You can change these by overwriting the appropriate `*.sublime-keymap`
