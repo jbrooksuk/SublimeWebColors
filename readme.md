@@ -1,3 +1,6 @@
+SublimeWebColors
+================
+
 SublimeWebColors is a plugin for the growing popular editor [SublimeText 2](http://www.sublimetext.com/dev). It simply lists all CSS3 color names `indigo, gold, firebrick` etc and expands them to their representing hex codes; `#4B0082, #FFD700, #B22222`.
 
 Sublime Package Control
