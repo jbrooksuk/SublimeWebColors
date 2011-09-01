@@ -19,6 +19,11 @@ Usage
 
 You can change these by overwriting the appropriate `*.sublime-keymap`
 
+Credit
+------
+
+`webcolors.py` is a Python library developed by James Bennett, see [BitBucket](https://bitbucket.org/ubernostrum/webcolors/) for his code.
+
 License
 -------
 
