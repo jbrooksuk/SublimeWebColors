@@ -6,13 +6,14 @@ class WebColorsCommand(sublime_plugin.WindowCommand):
 
 	def __init__(self, *args, **kwargs):
 		super(WebColorsCommand, self).__init__(*args, **kwargs)
+		colorList = []
 		self.generateColorDialog()
 
 	def run(self):
 		self.window.show_quick_panel(self.colorList , self.callback, sublime.MONOSPACE_FONT)
 
 	def callback(self, index):
-		if (index > -1):
+		if (index > -1): # No value is -1
 			colorValue = self.colorList[index][1]
 			self.window.active_view().run_command("insert_web_colors", {"value": colorValue})
 
