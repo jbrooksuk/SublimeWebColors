@@ -3,7 +3,6 @@ import webcolors
 
 class WebColorsCommand(sublime_plugin.WindowCommand):
 	colorList = []
-
 	def __init__(self, *args, **kwargs):
 		super(WebColorsCommand, self).__init__(*args, **kwargs)
 		colorList = []
@@ -21,7 +20,13 @@ class WebColorsCommand(sublime_plugin.WindowCommand):
 		for name, color in webcolors.css3_names_to_hex.iteritems():
 			self.colorList.append([name, color.upper()])
 
+
 class InsertWebColorsCommand(sublime_plugin.TextCommand):
 	def run(self, edit, value):
 		for region in self.view.sel():
 			self.view.replace(edit, region, value)
+
+
+class WebColorsCompleteCommand(sublime_plugin.EventListener):
+	def on_query_completions(self, view, prefix, locations):	
+		return[(str(x),) * 2 for x in webcolors.css3_names_to_hex]
