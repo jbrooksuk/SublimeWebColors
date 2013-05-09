@@ -1,5 +1,5 @@
 import sublime, sublime_plugin
-import webcolors
+import SublimeWebColors.webcolors as webcolors
 
 class WebColorsCommand(sublime_plugin.WindowCommand):
 	colorList = []
@@ -9,7 +9,7 @@ class WebColorsCommand(sublime_plugin.WindowCommand):
 		self.generateColorDialog()
 
 	def run(self):
-		self.window.show_quick_panel(self.colorList , self.callback, sublime.MONOSPACE_FONT)
+		self.window.show_quick_panel(self.colorList , self.callback)
 
 	def callback(self, index):
 		if (index > -1): # No value is -1
@@ -17,7 +17,7 @@ class WebColorsCommand(sublime_plugin.WindowCommand):
 			self.window.active_view().run_command("insert_web_colors", {"value": colorValue})
 
 	def generateColorDialog(self):
-		for name, color in webcolors.css3_names_to_hex.iteritems():
+		for name, color in webcolors.css3_names_to_hex.items():
 			self.colorList.append([name, color.upper()])
 
 
@@ -28,5 +28,8 @@ class InsertWebColorsCommand(sublime_plugin.TextCommand):
 
 
 class WebColorsCompleteCommand(sublime_plugin.EventListener):
-	def on_query_completions(self, view, prefix, locations):	
+	def on_query_completions(self, view, prefix, locations):
+		if not view.match_selector(locations[0], 'source.css'):
+			return []
+
 		return[(str(x),) * 2 for x in webcolors.css3_names_to_hex]
