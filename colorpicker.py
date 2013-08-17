@@ -1,5 +1,13 @@
 import sublime, sublime_plugin
-import SublimeWebColors.webcolors as webcolors
+
+sublime_version = 2
+if not sublime.version() or int(sublime.version()) > 3000:
+	sublime_version = 3
+
+if sublime_version == 2:
+	import webcolors
+else:
+	import SublimeWebColors.webcolors as webcolors
 
 class WebColorsCommand(sublime_plugin.WindowCommand):
 	colorList = []
